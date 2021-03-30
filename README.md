@@ -3,6 +3,8 @@
 
 Welcome to my final project for Harvard's CS50 Web! Moviesland is an app made with love by me and some help of Python, Django and Javascript :)
 
+Watch video: https://www.youtube.com/watch?v=Cq3plmYexgM&t=1s
+
 ### Technologies used:
 1. Python/Django
 2. Javascript
