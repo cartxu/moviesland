@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const movie = document.querySelector('.movieInfo').id;
-    const API_KEY = 'e5e4db3dbc304d099091bfe9536607fa';
+    const API_KEY = 'x';
     fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=${API_KEY}`)
     .then(data => data.json())
     .then(data => {
