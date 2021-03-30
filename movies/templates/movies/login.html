@@ -1,0 +1,41 @@
+{% extends "movies/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+
+
+<div class="card">
+    <h1>Login</h1>
+    {% if message %}
+    <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <div class="inputs">
+            <label for="name">
+                <input type="text" name="username" placeholder="Username" autocomplete="off">
+            </label>
+            <label for="pass">
+                <input type="password" name="password" placeholder="Password">
+            </label>
+        </div>
+  
+        <div class="send">
+            <input type="submit" value="Login">
+        </div>
+
+    </form>
+
+    <div class="sub">
+        <p>Not registered yet? Become a member <a href="{% url 'register' %}">here</a>!</p>
+    </div>
+
+
+</div>
+
+
+
+
+{% endblock %}

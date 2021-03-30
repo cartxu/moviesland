@@ -1,0 +1,27 @@
+{% extends "movies/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<h4>Watchlist: {{ watchlist.watchlist }} </h4>
+<div class="movies">
+    
+    {% for movie in movies %}
+    
+    <a href="{% url 'movie' movie.movieID %}" class="movieContainer" id="movie-{{movie.id}}">
+       <h4>{{ movie.title }}</h4> 
+       <img src="{{ movie.poster }}" alt="{{movie.title}}">
+    </a>
+    <button data-id="{{movie.id}}" id="{{watchlist.id}}" class="deletebtn">X</button>
+    {% endfor %}
+   
+</div>
+
+
+
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'movies/watchlist.js' %}"></script>
+{% endblock %}

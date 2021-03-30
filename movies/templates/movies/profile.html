@@ -1,0 +1,26 @@
+{% extends "movies/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<h4>Hello {{ user.username }}, this is your movie board:</h4>
+
+<div class="movies"> 
+    
+    {% for movie in movies %}
+    <a class="movieContainer" href="/movie/{{ movie.movieID }}">
+    <div>
+        <h4>{{ movie.title }}</h4> 
+        <div>
+        <img src="{{ movie.poster }}" alt="{{ movie.title }}"></div> 
+    </div></a>
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'movies/app.js' %}"></script>
+{% endblock %}

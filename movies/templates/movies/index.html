@@ -1,0 +1,37 @@
+{% extends "movies/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+
+<div class="top-buttons"><button id="playing"><i class="fas fa-play"></i> Now Playing</button> <button id="trending"><i class="fas fa-poll"></i> Trending Movies</button> <button id="topRating"><i class="far fa-star"></i> Top Rated Movies </button></div>
+
+<div class="movies" id="queryMovies">
+
+
+
+</div>
+
+
+
+<div class="movies" id="playingMovies"> 
+
+</div>
+<button id="more">Load More</button>
+
+<div class="movies" id="trendingMovies">
+     
+</div>
+
+<div class="movies" id="bestRated">
+   
+</div>
+
+
+
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'movies/app.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "movies/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="movieInfo" id="{{ movie }}">
+<!-- contenedor con la info de la película    -->
+</div>
+
+<div class="movies"></div>
+
+<!-- comprobamos si el usuario está autenticado para mostrar opciones especiales de miembros  -->
+{% if user.is_authenticated %}
+<div class="user-opt">
+<!-- comprobamos si el usuario tiene esta película en su base de datos para mostrar boton añadir o eliminar -->
+    <div class="personal">
+        {% if request.user in movieInfo.user.all %}
+        <button id="saveMovie">Delete</button>
+        
+        <div>
+        <label for="watchlists"><i class="fas fa-list"></i></label>
+        <select name="watchlists" id="watchlists" data-id="{{ movieInfo.id }}">
+            {% for watchlist in watchlists %}
+            <option value="{{ watchlist.id }}">{{ watchlist.watchlist }}</option>
+            {% endfor %}
+        </select>
+        <button id="addMovie"><i class="fas fa-plus-circle"></i></button>
+        </div>
+
+        <div class="added"></div>
+        
+        {% else %}
+        <button id="saveMovie">Save</button>
+        {% endif %}
+
+    </div>
+    <!-- opciones para puntuar las peliculas en la base de datos privada  -->
+    <div class="ratings">   
+        {% if movieInfo %}
+        <p><i class="far fa-star"></i> Rating: {{ average.ratings__rating__avg|floatformat:2 }} </p>
+        <p id="totalRatings"><i class="fas fa-vote-yea"></i> Total votes: {{ movieInfo.ratings.count }} </p>
+        <p id="yourRating"></p>
+        <label for="rating"> Rate this:
+            <input type="number" name="rating" min="1" max="10" step="1" id="rating" data-id="{{ movieInfo.id }}">
+        </label>
+        <button type="submit" id="rateSubmit"><i class="fas fa-star-half-alt"></i></button>
+        {% endif %}
+    </div> 
+</div>
+{% endif %}
+
+
+<div class="reviews">
+    <h4> Reviews <i class="fas fa-comments"></i> </h4> 
+    {% if movieInfo.comments %}
+    {% for comment in movieInfo.comments.all %}
+    <div class="reviewCont review review-{{ comment.id }}">
+        <div class="revBody" id="comment-{{ comment.id }}" >
+            &minus; {{ comment.comment }}
+        </div>
+        <!-- contenedor para editar review -->
+        <div class="review" id="editView-{{comment.id}}" style="display:none;">
+            <textarea class="comment" data-id="{{ comment.id }}" name="" id="textArea-{{ comment.id }}" cols="30" rows="10">{{ comment.comment }}</textarea>
+            <button id="commentSave-{{comment.id}}">Save</button>
+        </div>
+        <!-- botones para editar o eliminar post si el usuario es el autor del review -->
+        {% ifequal request.user comment.user %}
+        <div class="comment-buttons">
+            <i id="deletePost-{{ comment.id }}" data-id="{{ comment.id }}" class="fas fa-trash-alt delete"></i> <i id="editPost-{{ comment.id }}" data-id="{{ comment.id }}" class="fas fa-edit edit"></i>
+        </div>
+        {% endifequal %}
+        <div class="revDetails">
+           Posted by <b>{{ comment.user }} </b> on {{ comment.time }}
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p class="warn">(No reviews yet)</p>
+    {% endif %}
+
+{% if user.is_authenticated and movieInfo %}
+    <div class="newReview">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.comment }}
+            <button type="submit" value="{{ movieInfo.id }}" id="postReview">Post</button>
+        </form>
+    </div>
+{% endif %}
+</div>
+
+
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'movies/app.js' %}"></script>
+    <script src="{% static 'movies/movie.js' %}" ></script>
+
+{% endblock %}
