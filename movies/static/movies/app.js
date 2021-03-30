@@ -29,7 +29,7 @@ function search_movie() {
     document.querySelector('#playingMovies').style.display = 'none';
     document.querySelector('#more').style.display = 'none';
     const query = document.getElementById('search').value;
-    const API_KEY = 'e5e4db3dbc304d099091bfe9536607fa';
+    const API_KEY = 'x';
     console.log(query);
     const queryMovies = document.querySelector('#queryMovies');
     queryMovies.innerHTML = ' ';
@@ -55,7 +55,7 @@ function search_movie() {
 
 
 function now_playing(page) {
-    const API_KEY = 'e5e4db3dbc304d099091bfe9536607fa';
+    const API_KEY = 'x';
     
     document.querySelector('#trendingMovies').style.display = 'none';
     document.querySelector('#bestRated').style.display = 'none';
@@ -95,7 +95,7 @@ function now_playing(page) {
 
 
 function load_moviestop(){
-    const API_KEY = 'e5e4db3dbc304d099091bfe9536607fa';
+    const API_KEY = 'x';
     const moviesContainer = document.querySelector('#trendingMovies');
     document.querySelector('#queryMovies').style.display = 'none';
     document.querySelector('#bestRated').style.display = 'none';
@@ -126,7 +126,7 @@ function load_moviestop(){
 }
 
 function load_ratingtop() {
-    const API_KEY = 'e5e4db3dbc304d099091bfe9536607fa';
+    const API_KEY = 'x';
     const moviesContainer = document.querySelector('#bestRated');
     moviesContainer.style.display = 'flex';
     document.querySelector('#queryMovies').style.display = 'none';
