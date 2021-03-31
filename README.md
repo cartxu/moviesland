@@ -1,7 +1,7 @@
 ## CS50’s Web Programming with Python and JavaScript
 # FINAL PROJECT: MOVIESLAND
 
-Welcome to my final project for Harvard's CS50 Web! Moviesland is an app made with love by me and some help of Python, Django and Javascript :)
+Welcome to my final project for Harvard's CS50 Web! Moviesland is an app made with love by me and some help from Python, Django and Javascript :)
 
 Watch video: https://www.youtube.com/watch?v=Cq3plmYexgM&t=1s
 
