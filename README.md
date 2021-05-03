@@ -1,11 +1,13 @@
 ## CS50’s Web Programming with Python and JavaScript
-# FINAL PROJECT: MOVIESLAND
+# FINAL PROJECT: PELICULISTAS
 
-Welcome to my final project for Harvard's CS50 Web! Moviesland is an app made with love by me and some help from Python, Django and Javascript :)
+Welcome to my final project for Harvard's CS50 Web! Peliculistas is an app made with love by me and some help from Python, Django and Javascript :)
 
 Watch video: https://www.youtube.com/watch?v=Cq3plmYexgM&t=1s
 
-### Technologies used:
+Visit online (updated version): http://peliculistas.herokuapp.com/
+
+### Technologies:
 1. Python/Django
 2. Javascript
 3. HTML
@@ -13,8 +15,8 @@ Watch video: https://www.youtube.com/watch?v=Cq3plmYexgM&t=1s
 
 ### Specification:
 
-* **Moviesland** is a web app where visitors and users will be able to check and look for movie info (provided by the moviedb API) and registered users will have the priviledge of saving movies on their personal movie board, create personalized watchlists, post reviews or rate movies. 
-- To bring the data from moviedb.org I use Javascript (fetch) so the app prints all the information on the index page or can be displayed by a 'query' by the user aswell. 
+* **Peliculistas** is a web app where visitors and users will be able to check and look for movie info (provided by the moviedb API) and registered users will have the priviledge of saving movies on their personal movie board, create personalized watchlists, post reviews or rate movies. 
+- To bring the data from moviedb.org I use Javascript so the app prints all the information on the index page or can be displayed by a 'query' by the user aswell. 
 - Once we have that data, users take action by 'saving' films, so they are copying all that information to our own database and now is available for users to take more interesting and complex actions like: post reviews, rate movies or create personalized watchlists with movies. 
 - To accomplish this I created 5 Django models: user, comments, rating, watchlist and movie.
 
